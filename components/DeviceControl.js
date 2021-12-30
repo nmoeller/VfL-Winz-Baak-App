@@ -32,9 +32,9 @@ export default function DeviceControl({ navigation, route }) {
     }
 
     return (
-        <View>
-            <Counter sendUpdate={messageToBLE} prefix={"sh:"}></Counter>
-            <Counter sendUpdate={messageToBLE} prefix={"sg:"}></Counter>
+        <View style={{flex:1,flexDirection:"row",justifyContent:"space-evenly"}}>
+            <Counter sendUpdate={messageToBLE} prefix={"sh:"} teamname={"Heim"}></Counter>
+            <Counter sendUpdate={messageToBLE} prefix={"sg:"} teamname={"Gast"}></Counter>
         </View>
     )
 }

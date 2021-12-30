@@ -12,18 +12,28 @@ export default function Counter(props) {
     }
 
     return (
-        <View style={style}>
-            <Button icon="minus" mode="contained" onPress={() => sendMessage(counter-1)}></Button>
-            <Text>{counter}</Text>
-            <Button icon="plus" mode="contained" onPress={() => sendMessage(counter + 1)}></Button>
+        <View style={style.container}>
+            <Text style={style.text}>{props.teamname}</Text>
+            <Button style={style.button} labelStyle={{fontSize: 30}}  mode="contained" onPress={() => sendMessage(counter + 1)}><Text>+</Text></Button>
+            <Text style={style.text}>{counter}</Text>
+            <Button style={style.button} labelStyle={{fontSize: 40}} mode="contained" onPress={() => sendMessage(counter-1)}><Text>-</Text></Button>
         </View>
     )
 }
 
 const style = {
-    flexDirection: "row",
-    padding: 20,
-    justifyContent: "space-between"
+    container: {
+        flexDirection: "column",
+        padding: 50,
+        alignItems : "center",
+        justifyContent: "space-evenly"
+    },
+    button : {
+    },
+    text : {
+        fontSize : 30
+    }
+    
 }
 
 
