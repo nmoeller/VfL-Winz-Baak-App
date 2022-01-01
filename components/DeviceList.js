@@ -10,7 +10,7 @@ const manager = new BleManager();
 GLOBALS.BleManager = manager
 
 
-export default function DeviceList({ navigation }) {
+export default function DeviceList({ navigation , route}) {
 
   const [devices, setDevices] = useState([])
   const [bluethoothActive, setBluethoothActive] = useState(false)
@@ -104,7 +104,8 @@ export default function DeviceList({ navigation }) {
           
     });
      AppState.addEventListener('change', (nextAppState) => {
-      if (nextAppState === "active") {
+      var nState = navigation.getState()
+      if (nextAppState === "active" && nState.routeNames[nState.index] == route.name) {
         checkBluethoothState()
         if(devices.length == 0){
           scanDevices()

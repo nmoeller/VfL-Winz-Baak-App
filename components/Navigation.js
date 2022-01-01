@@ -11,6 +11,7 @@ import DeviceList from './DeviceList';
 import DeviceControl from './DeviceControl';
 import Feed from './NewsFeed'
 import Links from './Links'
+import LiveScoring from './LiveScoring';
 
 function Notifications() {
   return (
@@ -77,6 +78,7 @@ export default function NavigationMenu() {
     >
       <Drawer.Screen name="News" component={Feed} />
       <Drawer.Screen name="Links" component={Links} />
+      <Drawer.Screen name="Live Scoring" component={LiveScoring}/>
       <Drawer.Screen name="Control Devices" component={DeviceList} />
       <Drawer.Screen options={{drawerItemStyle: { height: 0 }}} name="DeviceControl" component={DeviceControl} />
     </Drawer.Navigator>

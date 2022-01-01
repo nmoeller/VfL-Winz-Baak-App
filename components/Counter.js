@@ -4,19 +4,13 @@ import { Button } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 
 export default function Counter(props) {
-    const [counter, setCounter] = useState(0);
-
-    const sendMessage = (counterNew) => {
-        setCounter(counterNew)
-        props.sendUpdate(props.prefix+counterNew)
-    }
 
     return (
         <View style={style.container}>
             <Text style={style.text}>{props.teamname}</Text>
-            <Button style={style.button} labelStyle={{fontSize: 30}}  mode="contained" onPress={() => sendMessage(counter + 1)}><Text>+</Text></Button>
-            <Text style={style.text}>{counter}</Text>
-            <Button style={style.button} labelStyle={{fontSize: 40}} mode="contained" onPress={() => sendMessage(counter-1)}><Text>-</Text></Button>
+            <Button style={style.button} labelStyle={{fontSize: 30}}  mode="contained" onPress={() => props.update(props.counter + 1)}><Text>+</Text></Button>
+            <Text style={style.text}>{props.counter}</Text>
+            <Button style={style.button} labelStyle={{fontSize: 40}} mode="contained" onPress={() => props.update(props.counter-1)}><Text>-</Text></Button>
         </View>
     )
 }
