@@ -16,6 +16,11 @@ export default function LiveScoring(props) {
     }
 
     useEffect(() => {
+        console.log("initial load")
+        fetchScores()
+    }, [])
+
+    useEffect(() => {
         setTimeout(()=>fetchScores(),10000)
     }, [livescores])
 

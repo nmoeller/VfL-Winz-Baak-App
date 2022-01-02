@@ -35,7 +35,7 @@ function CustomDrawerContent(props) {
           style={{ width: 70, height: 70 }}
           source={require('../images/s5_logo.png')}
         />
-        <Text style={{marginTop: 8,fontSize: 20,fontWeight:"bold"}}>VfL Winz Baak</Text>
+        <Text style={{color:"#ffffff",marginTop: 8,fontSize: 20,fontWeight:"bold"}}>VfL Winz Baak</Text>
       </View>
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
@@ -73,7 +73,7 @@ const Drawer = createDrawerNavigator();
 export default function NavigationMenu() {
   return (
     <Drawer.Navigator
-      screenOptions={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+      screenOptions={{ headerTitle: (props) => <LogoTitle {...props} />}}
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen name="News" component={Feed} />

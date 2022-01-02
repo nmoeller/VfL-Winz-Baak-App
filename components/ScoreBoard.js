@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { Text,View} from 'react-native';
+import { Button } from 'react-native-paper';
 
 export default function ScoreBoard({props,livescore}){
 
@@ -10,11 +11,11 @@ export default function ScoreBoard({props,livescore}){
         </View>
         <View style={style.container_header}>
         <View style={style.container}>
-            <Text style={style.text}>{livescore.homeName}</Text>
+            <Button style={style.text}>{livescore.homeName}</Button>
             <Text style={style.text}>{livescore.homeScore}</Text>
           </View>
         <View style={style.container}>
-            <Text style={style.text}>{livescore.guestName}</Text>
+            <Button style={style.text}>{livescore.guestName}</Button>
             <Text style={style.text}>{livescore.guestScore}</Text>
         </View>
       </View>
@@ -37,7 +38,8 @@ export default function ScoreBoard({props,livescore}){
       button : {
       },
       text : {
-          fontSize : 20
+          fontSize : 20,
+          fontWeight : "bold"
       },
       header : {
         marginTop : 30,

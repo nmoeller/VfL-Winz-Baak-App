@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { AppState,PermissionsAndroid, StyleSheet, Text, TouchableOpacity,  View } from 'react-native';
 import Device from './Device';
-import { FAB,List } from 'react-native-paper';
+import { FAB,List,useTheme } from 'react-native-paper';
 import { BleManager } from 'react-native-ble-plx';
 import React, { useState, useEffect } from 'react';
 import BluetoothStateManager from 'react-native-bluetooth-state-manager';
@@ -115,6 +115,25 @@ export default function DeviceList({ navigation , route}) {
 
 }, []);
 
+const colors = useTheme().colors
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+  fab: {
+    position: 'absolute',
+    backgroundColor : colors.primary,
+    margin: 16,
+    right: 0,
+    bottom: 0,
+  },
+});
+
 
   return (
     <View style={styles.container}>
@@ -130,29 +149,14 @@ export default function DeviceList({ navigation , route}) {
       </List.Section>
         <FAB
           style={styles.fab}
-          small
+          label="Search"
           icon="cached"
           onPress={() => scanDevices()}
           disabled = {!bluethoothActive}
         />
+ 
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-  fab: {
-    position: 'absolute',
-    margin: 16,
-    right: 0,
-    bottom: 0,
-  },
-});
 
