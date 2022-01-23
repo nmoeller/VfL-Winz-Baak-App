@@ -41,8 +41,12 @@ export default function DeviceList({ navigation , route}) {
         id : device.id,
         name : device.name
       }
+
       console.log(deviceFound)
-      if (deviceFound.id) {
+      deviceArray.push(deviceFound)
+    
+      if (device.name && deviceFound.name.includes("Winz-Baak")) {
+        console.log(deviceFound)
         deviceArray.push(deviceFound)
       }
       

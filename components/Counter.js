@@ -1,16 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { TextInput, Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 
-export default function Counter(props) {
+export default function Counter({setLivescore,livescore,update,kind}) {
 
     return (
         <View style={style.container}>
-            <Text style={style.text}>{props.teamname}</Text>
-            <Button style={style.button} labelStyle={{fontSize: 30}}  mode="contained" onPress={() => props.update(props.counter + 1)}><Text>+</Text></Button>
-            <Text style={style.text}>{props.counter}</Text>
-            <Button style={style.button} labelStyle={{fontSize: 40}} mode="contained" onPress={() => props.update(props.counter-1)}><Text>-</Text></Button>
+            <TextInput onEndEditing={(text)=>setLivescore({...livescore,[kind+"Name"]:text.nativeEvent.text})} style={style.input}>{livescore[kind+"Name"]}</TextInput>
+            <Button style={style.button} labelStyle={{fontSize: 30}}  mode="contained" onPress={() => update(livescore[kind+"Score"] + 1)}><Text>+</Text></Button>
+            <Text style={style.text}>{livescore[kind+"Score"]}</Text>
+            <Button style={style.button} labelStyle={{fontSize: 40}} mode="contained" onPress={() => update(livescore[kind+"Score"]-1)}><Text>-</Text></Button>
         </View>
     )
 }
@@ -26,7 +26,15 @@ const style = {
     },
     text : {
         fontSize : 30
-    }
+    },
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        fontSize:20
+    },
+
     
 }
 
